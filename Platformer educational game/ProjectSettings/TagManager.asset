@@ -14,7 +14,7 @@ TagManager:
   - UI
   - Player
   - Ground
-  - 
+  - TEXT
   - 
   - 
   - 
@@ -47,4 +47,7 @@ TagManager:
     locked: 0
   - name: Terrain
     uniqueID: 123576673
+    locked: 0
+  - name: PreUI
+    uniqueID: 2443474225
     locked: 0
