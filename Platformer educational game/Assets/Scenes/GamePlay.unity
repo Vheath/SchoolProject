@@ -130935,9 +130935,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SquarePrefab: {fileID: 9164166681700536055, guid: 9bb1b8495e5fe4b449378c7ea0585933, type: 3}
-  equation: 2 + 2 = 4
-  xIntervalBetweenBlocks: 0.5
-  yIntervalBetweenBlocks: 0
+  xIntervalBetweenBlocks: 0.272
+  yIntervalBetweenBlocks: 0.377
   equationLength: 5
 --- !u!4 &1077687595
 Transform:
@@ -143051,22 +143050,6 @@ CompositeCollider2D:
         Y: -105000100
       - X: -180000100
         Y: -112499900
-    - - X: 110000100
-        Y: -142500041
-      - X: 110000100
-        Y: -134999959
-      - X: 110000041
-        Y: -134999900
-      - X: 99999959
-        Y: -134999900
-      - X: 99999900
-        Y: -134999959
-      - X: 99999900
-        Y: -142500041
-      - X: 99999959
-        Y: -142500100
-      - X: 110000041
-        Y: -142500100
     - - X: 10000100
         Y: -150000041
       - X: 10000100
@@ -143095,6 +143078,22 @@ CompositeCollider2D:
         Y: -150000100
       - X: 10000041
         Y: -150000100
+    - - X: 110000100
+        Y: -142500041
+      - X: 110000100
+        Y: -134999959
+      - X: 110000041
+        Y: -134999900
+      - X: 99999959
+        Y: -134999900
+      - X: 99999900
+        Y: -134999959
+      - X: 99999900
+        Y: -142500041
+      - X: 99999959
+        Y: -142500100
+      - X: 110000041
+        Y: -142500100
   m_CompositePaths:
     m_Paths:
     - - {x: 17.999975, y: 10.49999}
@@ -147095,6 +147094,10 @@ PrefabInstance:
     - target: {fileID: 7180186386127119046, guid: f77745bac48f75346a0f8d50af0f3ae2, type: 3}
       propertyPath: m_ClearFlags
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7180186386127119046, guid: f77745bac48f75346a0f8d50af0f3ae2, type: 3}
+      propertyPath: orthographic size
+      value: 14.75
       objectReference: {fileID: 0}
     - target: {fileID: 7180186386127119046, guid: f77745bac48f75346a0f8d50af0f3ae2, type: 3}
       propertyPath: m_CullingMask.m_Bits
