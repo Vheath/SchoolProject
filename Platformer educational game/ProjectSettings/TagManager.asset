@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Trap
+  - Ground
+  - Equation
+  - Extra Equation Block
+  - Equation Block
   layers:
   - Default
   - TransparentFX

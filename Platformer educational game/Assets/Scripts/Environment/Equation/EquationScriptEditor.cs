@@ -26,7 +26,11 @@ public class EquationScriptEditor : Editor
             EditorGUILayout.Slider("YInterval", equationGenerator.yIntervalBetweenBlocks, 0, 2);
         EditorGUILayout.EndHorizontal();
 
-        if(GUILayout.Button("Generate Equation"))
+        EditorGUILayout.BeginHorizontal();
+        equationGenerator.extraDigitCount =
+            EditorGUILayout.IntSlider("Extra Digit Count",equationGenerator.extraDigitCount, 0, 4);
+        EditorGUILayout.EndHorizontal();
+        if (GUILayout.Button("Generate Equation"))
         {
             equationGenerator.MakeEquation();
         }

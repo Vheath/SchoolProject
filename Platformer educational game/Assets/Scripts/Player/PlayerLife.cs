@@ -7,10 +7,11 @@ using UnityEngine.SceneManagement;
 public class PlayerLife : MonoBehaviour
 {
     private Animator anim;
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
     private void Start()
     {
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
