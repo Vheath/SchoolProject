@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    [SerializeField] private Camera mainCamera;
-    [SerializeField] private Transform player;
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform bulletTransform;
     [SerializeField] private bool canFire;
     [SerializeField] private float timeBetweenFiring;
+    private Camera mainCamera;
+    private Transform player;
     private float timer;
     private Vector3 mousePos;
     private void Start()
     {
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        player = GameManager.instance.playerTransform;
         bullet.GetComponent<BulletScript>().mainCamera = mainCamera;
     }
     private void Update()
@@ -46,6 +48,7 @@ public class Shooting : MonoBehaviour
         {
             canFire = false;
 
+            GameManager.instance.audioManager.PlayShot();
             Instantiate(bullet, bulletTransform.position, Quaternion.identity);
         }
     }

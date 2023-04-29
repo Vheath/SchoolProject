@@ -24,6 +24,7 @@ public class PlayerLife : MonoBehaviour
 
     private void Die()
     {
+        GameManager.instance.audioManager.PlayDeath();
         anim.SetTrigger("Death");
         rb.bodyType = RigidbodyType2D.Static;
     }

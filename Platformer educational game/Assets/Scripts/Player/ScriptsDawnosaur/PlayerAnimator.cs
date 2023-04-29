@@ -72,11 +72,11 @@ public class PlayerAnimator : MonoBehaviour
     {
         if (startedJumping)
         {
+            GameManager.instance.audioManager.PlayJump();
             anim.SetTrigger("Jump");
             GameObject obj = Instantiate(jumpFX, transform.position - (Vector3.up * transform.localScale.y / 2), Quaternion.Euler(-90, 0, 0));
             Destroy(obj, 1);
             startedJumping = false;
-            return;
         }
 
         if (justLanded)
@@ -85,8 +85,9 @@ public class PlayerAnimator : MonoBehaviour
             GameObject obj = Instantiate(landFX, transform.position - (Vector3.up * transform.localScale.y / 1.5f), Quaternion.Euler(-90, 0, 0));
             Destroy(obj, 1);
             justLanded = false;
-            return;
+
         }
+        
         if (mov.RB.velocity.y < 0.5) anim.SetTrigger("Fall");
         if (mov.RB.velocity.y > -0.01) anim.ResetTrigger("Fall");
         if (Mathf.Abs(mov.RB.velocity.x) > 0.25) anim.SetBool("Run", true);
