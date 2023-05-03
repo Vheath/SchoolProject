@@ -7,11 +7,12 @@ using TMPro;
 public class EquationGenerator : MonoBehaviour
 {
     public GameObject SquarePrefab;
-    public float xIntervalBetweenBlocks = .5f, yIntervalBetweenBlocks = .5f;
+    public float xIntervalBetweenBlocks, yIntervalBetweenBlocks;
     public int extraDigitCount;
-    private List<Block> equationInList = new List<Block>();
+    private List<Block> equationList = new List<Block>();
     const float squareSize = 1.8f;
     const int addition = 1, subtraction = 2, multiply = 3, dividing = 4;
+    private int removingCount = 0;
     void Start()
     {
         MakeEquation();
@@ -19,11 +20,11 @@ public class EquationGenerator : MonoBehaviour
     }
     public void MakeEquation()
     {
-        RemoveEquation(); 
-        GenerateRandomEquation(); 
+        RemoveEquation();
+        GenerateRandomEquation();
 
         AddExtraDigits();
-        int length = equationInList.Count;
+        int length = equationList.Count;
         GameObject[] squaresArr = new GameObject[length]; //Массив блоков, из которых строится уравнение
 
         for (int i = 0; i < length; i++)
@@ -32,7 +33,7 @@ public class EquationGenerator : MonoBehaviour
             squaresArr[i] = Instantiate(SquarePrefab, transform);
             squaresArr[i].transform.position = transform.position;
             squaresArr[i].GetComponentInChildren<TextMeshPro>().text
-                = char.ToString(equationInList[i].Character);
+                = char.ToString(equationList[i].Character);
 
             // Распологаем блоки относительно друг друга в зависимости от заданных параметров
             if (xIntervalBetweenBlocks > 0 && yIntervalBetweenBlocks > 0)
@@ -54,7 +55,7 @@ public class EquationGenerator : MonoBehaviour
         }
         for (int i = 0; i < length; i++)
         {
-            if (equationInList[i].IsExtra == true)
+            if (equationList[i].IsExtra == true)
             {
                 squaresArr[i].tag = "Extra Equation Block";
             }
@@ -120,7 +121,7 @@ public class EquationGenerator : MonoBehaviour
         // Перемещаем уравнение в список пользовательского типа для удобства
         for (int i = 0; i < equation.Length; i++)
         {
-            equationInList.Add(new Block(equation[i], false));
+            equationList.Add(new Block(equation[i], false));
         }
 
     }
@@ -131,9 +132,9 @@ public class EquationGenerator : MonoBehaviour
         for (int i = 0; i < extraDigitCount; i++)
         {
             int extraDigit = rnd.Next(1, 10);
-            int extraDigitPos = rnd.Next(0, equationInList.Count);
+            int extraDigitPos = rnd.Next(0, equationList.Count);
 
-            equationInList.Insert(extraDigitPos, new Block(extraDigit.ToString()[0], true));
+            equationList.Insert(extraDigitPos, new Block(extraDigit.ToString()[0], true));
         }
     }
 
@@ -146,17 +147,23 @@ public class EquationGenerator : MonoBehaviour
         else if (block.CompareTag("Extra Equation Block"))
         {
             Destroy(block);
+            ++removingCount;
+            if (removingCount == extraDigitCount)
+            {
+                GetComponent<LevelFinishing>().FinishLevel();
+            }
         }
     }
     private void RemoveEquation()
     {
         foreach (Transform child in transform) Destroy(child.gameObject);
-        if (equationInList.Count > 0)
+        removingCount = 0;
+        if (equationList.Count > 0)
         {
-            for (int i = equationInList.Count - 1; i >= 0; i--)
+            for (int i = equationList.Count - 1; i >= 0; i--)
             {
-                equationInList.Remove(equationInList[i]);
-                Debug.Log(equationInList.Count);
+                equationList.Remove(equationList[i]);
+                Debug.Log(equationList.Count);
             }
         }
     }
