@@ -19,8 +19,6 @@ public class LevelFinishing : MonoBehaviour
     }
     private void FinishLevelPart2()
     {
-        Debug.Log(SceneManager.GetActiveScene().buildIndex + 1);
-        Debug.Log(SceneManager.sceneCount);
         if (SceneManager.GetActiveScene().buildIndex + 1 > SceneManager.sceneCount)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);

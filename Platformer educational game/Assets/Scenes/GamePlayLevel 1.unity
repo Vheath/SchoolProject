@@ -11525,7 +11525,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970578736}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86b1e80515ec7c7409fbac72b7e17b11, type: 3}
   m_Name: 
@@ -11546,7 +11546,7 @@ MonoBehaviour:
   SquarePrefab: {fileID: 9164166681700536055, guid: 9bb1b8495e5fe4b449378c7ea0585933, type: 3}
   xIntervalBetweenBlocks: 0.2
   yIntervalBetweenBlocks: 0
-  extraDigitCount: 1
+  extraDigitCount: 3
 --- !u!4 &970578740
 Transform:
   m_ObjectHideFlags: 0

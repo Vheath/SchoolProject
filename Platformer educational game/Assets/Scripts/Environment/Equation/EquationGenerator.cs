@@ -146,7 +146,7 @@ public class EquationGenerator : MonoBehaviour
         }
         else if (block.CompareTag("Extra Equation Block"))
         {
-            Destroy(block);
+            block.GetComponent<DestroyBlock>().DestroyWithFX();
             ++removingCount;
             if (removingCount == extraDigitCount)
             {
