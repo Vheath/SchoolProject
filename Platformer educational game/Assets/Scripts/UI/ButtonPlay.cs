@@ -5,9 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class ButtonPlay : MonoBehaviour
 {
-    public void SwitchLevel(Object scene)
+    public void SwitchLevel(int scene)
     {
-        SceneManager.LoadScene(scene.name, LoadSceneMode.Single);
-        SceneManager.LoadScene("EssentialScene", LoadSceneMode.Additive);
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        SceneManager.LoadScene(1, LoadSceneMode.Additive);
+    }
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

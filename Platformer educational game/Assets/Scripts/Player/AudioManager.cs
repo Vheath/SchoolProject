@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] private AudioClip jump, death, shot, dash, land;
+    [SerializeField] private AudioClip jump, death, shot, dash, land, destroy, finish;
     [SerializeField] AudioSource audioSource;
 
     public void PlayJump()
@@ -25,9 +25,18 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.PlayOneShot(dash);
     }
+    
+    public void PlayDestroy()
+    {
+        audioSource.PlayOneShot(destroy);
+    }
     public void PlayLand()
     {
         audioSource.PlayOneShot(land);
+    }
+    public void PlayFinish()
+    {
+        audioSource.PlayOneShot(finish);
     }
 
 }

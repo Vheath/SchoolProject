@@ -20,6 +20,12 @@ public class Shooting : MonoBehaviour
     }
     private void Update()
     {
+        if (Time.timeScale > 0f)
+            Shoot();
+    }
+
+    private void Shoot()
+    {
         if (player.localScale.x > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);

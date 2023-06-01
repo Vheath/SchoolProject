@@ -5,21 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class LevelFinishing : MonoBehaviour
 {
-    private AudioSource audioSource;
-    [SerializeField] private AudioClip finishSound;
-    private void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-
-    }
     public void FinishLevel()
     {
-        audioSource.PlayOneShot(finishSound);
+        Invoke("PlayFinishSound", 1f);
         Invoke("FinishLevelPart2", 2f);
+    }
+    
+    private void PlayFinishSound()
+    {
+        GameManager.instance.audioManager.PlayFinish();
     }
     private void FinishLevelPart2()
     {
-        if (SceneManager.GetActiveScene().buildIndex + 1 > SceneManager.sceneCount)
+
+        if (SceneManager.GetActiveScene().buildIndex > SceneManager.sceneCount)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
         }

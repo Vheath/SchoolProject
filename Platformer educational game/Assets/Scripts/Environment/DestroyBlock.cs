@@ -10,6 +10,7 @@ public class DestroyBlock : MonoBehaviour
     {
         GameObject fx = Instantiate(destroyFX);
         fx.transform.position = transform.position;
+        GameManager.instance.audioManager.PlayDestroy();
         Destroy(gameObject);
     }
 

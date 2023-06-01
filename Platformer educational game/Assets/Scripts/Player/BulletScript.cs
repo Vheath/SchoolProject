@@ -9,6 +9,7 @@ public class BulletScript : MonoBehaviour
     private Rigidbody2D rb;
     private GameObject equationBase;
     public float force;
+    [SerializeField] private GameObject destroyFX;
 
     private void Start()
     {
@@ -26,6 +27,8 @@ public class BulletScript : MonoBehaviour
         if (other.gameObject.CompareTag("Trap") || other.gameObject.CompareTag("Ground"))
         {
             //Удаляем если сталкивается с землей или ловушкой
+            GameObject fx =  GameObject.Instantiate(destroyFX);
+            fx.transform.position = transform.position;
             Destroy(gameObject);
         }
         else if (other.gameObject.CompareTag("Equation Block") || other.gameObject.CompareTag("Extra Equation Block"))

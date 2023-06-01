@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
   force: 5
+  destroyFX: {fileID: 3234584074981126610, guid: f75aed6094f7ad247bf4ba1aff8a93f2, type: 3}
 --- !u!50 &1606780353921563006
 Rigidbody2D:
   serializedVersion: 4
